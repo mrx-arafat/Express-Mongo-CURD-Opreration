@@ -9,11 +9,14 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-//err handle
+//get req
+app.get("/", (req, res) => {
+  res.sendFile(__dirname + "/view/index.html");
+});
 
 //error handling
-app.get((req, res, next) => {
-  res.status(404).json({ message: "page not found" });
+app.get("*", function (req, res) {
+  res.status(404).json({ message: "hey koi toma page!!! 404" });
 });
 //server error
 app.get((err, req, res, next) => {
