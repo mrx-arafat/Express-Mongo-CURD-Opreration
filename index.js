@@ -1,17 +1,8 @@
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-
-const app = express();
-
-//middleware
-app.use(cors());
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+const app = require("./app");
 
 //get req
 app.get("/", (req, res) => {
-  res.send("heello home");
+  res.send("hello home");
 });
 
 //server port and listen
