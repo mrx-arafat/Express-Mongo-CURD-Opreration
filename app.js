@@ -9,4 +9,11 @@ app.use(cors());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
+//err handle
+
+//error handling
+app.get((req, res, next) => {
+  res.status(404).json({ message: "page not found" });
+});
+
 module.exports = app;
