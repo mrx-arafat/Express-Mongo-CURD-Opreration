@@ -15,5 +15,9 @@ app.use(bodyParser.json());
 app.get((req, res, next) => {
   res.status(404).json({ message: "page not found" });
 });
+//server error
+app.get((err, req, res, next) => {
+  res.status(500).json({ message: "Server crash" });
+});
 
 module.exports = app;
