@@ -1,8 +1,9 @@
+const { dirname } = require("path");
 const app = require("./app");
 
 //get req
 app.get("/", (req, res) => {
-  res.send("hello home");
+  res.sendFile(__dirname + "/view/index.html");
 });
 
 //server port and listen
