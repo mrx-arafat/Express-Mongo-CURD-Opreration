@@ -16,7 +16,7 @@ app.get("/", (req, res) => {
 
 //error handling
 app.get("*", function (req, res) {
-  res.status(404).json({ message: "hey koi toma page!!! 404" });
+  res.status(404).json({ message: "hey koi tomar page!!! 404" });
 });
 //server error
 app.get((err, req, res, next) => {
