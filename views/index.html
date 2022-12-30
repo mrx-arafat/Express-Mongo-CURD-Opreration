@@ -54,13 +54,13 @@
           operationsDiv.style.display = "block";
           showoperationsButton.innerHTML = "Hide Operations";
           // Animate the operations list
-          var operationsList = ["Create Users", "View Users", "Delete Users"];
+          var operationsList = ["View Users", "Create Users", "Delete Users"];
           for (var i = 0; i < operationsList.length; i++) {
             setTimeout(
               function (index) {
-                var li = document.createElement("li");
-                li.innerHTML = operationsList[index];
-                operationsDiv.appendChild(li);
+                var p = document.createElement("p");
+                p.innerHTML = operationsList[index];
+                operationsDiv.appendChild(p);
               },
               i * 1000,
               i
