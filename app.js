@@ -25,7 +25,7 @@ app.get("/", (req, res) => {
 
 //error handling
 app.get("*", (req, res) => {
-  res.status(404).json({ message: "page not found" });
+  res.sendFile(__dirname + "/views/404.html");
 });
 
 //server error

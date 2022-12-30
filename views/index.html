@@ -1,13 +1,80 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>home</title>
+    <title>My Homepage</title>
+    <style>
+      /* Add some style to the page */
+      body {
+        background-color: #f8f8f8;
+        font-family: sans-serif;
+        text-align: center;
+      }
+      h1 {
+        color: #888888;
+        font-size: 3em;
+        margin: 0.5em 0;
+      }
+      p {
+        color: #888888;
+        font-size: 1.5em;
+        margin: 0.5em 0;
+      }
+      .container {
+        max-width: 500px;
+        margin: auto;
+        padding: 1em;
+      }
+      .button {
+        background-color: #0088cc;
+        border: none;
+        color: white;
+        cursor: pointer;
+        font-size: 1.25em;
+        padding: 0.5em 1em;
+      }
+      .button:hover {
+        background-color: #006699;
+      }
+    </style>
   </head>
   <body>
-    <h2>Hey this is home</h2>
-    <p>home for Billionaires</p>
+    <div class="container">
+      <h1>Homepage</h1>
+      <p>Hello, and welcome to homepage!</p>
+      <button class="button" onclick="showoperations()">Show operations</button>
+      <div id="operations" style="display: none"></div>
+    </div>
+    <script>
+      // Add some functionality to the "Show operations" button
+      var showoperationsButton = document.querySelector(".button");
+      var operationsDiv = document.querySelector("#operations");
+      showoperationsButton.addEventListener("click", function (event) {
+        event.preventDefault();
+        if (operationsDiv.style.display === "none") {
+          operationsDiv.style.display = "block";
+          showoperationsButton.innerHTML = "Hide Operations";
+          // Animate the operations list
+          var operationsList = ["Create Users", "View Users", "Delete Users"];
+          for (var i = 0; i < operationsList.length; i++) {
+            setTimeout(
+              function (index) {
+                var li = document.createElement("li");
+                li.innerHTML = operationsList[index];
+                operationsDiv.appendChild(li);
+              },
+              i * 1000,
+              i
+            );
+          }
+        } else {
+          operationsDiv.style.display = "none";
+          showoperationsButton.innerHTML = "Show Operations";
+          // Clear the operations list
+          while (operationsDiv.firstChild) {
+            operationsDiv.removeChild(operationsDiv.firstChild);
+          }
+        }
+      });
+    </script>
   </body>
 </html>
