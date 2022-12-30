@@ -24,7 +24,7 @@ app.get("/", (req, res) => {
 //api/users/:id : DELETE
 
 //error handling
-app.get((req, res, next) => {
+app.get("*", (req, res) => {
   res.status(404).json({ message: "page not found" });
 });
 
